@@ -8,7 +8,10 @@
         mc:Ignorable="d" Height="450" Width="656" ResizeMode="NoResize" Title="μLab_system_builder" Background="#FFD4D4D4">
     <Grid HorizontalAlignment="Left" Height="450" Margin="10,0,-6,-29" VerticalAlignment="Top" Width="646">
         <Grid x:Name="ButtonsGrid" HorizontalAlignment="Left" Height="37" Margin="0,367,0,0" VerticalAlignment="Top" Width="619">
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="619"/>
+            <Button Content="Exit" HorizontalAlignment="Left" Height="37" Margin="505,0,0,0" VerticalAlignment="Top" Width="114" Click="OnClickExit"/>
+            <Button Content="Save Setting" HorizontalAlignment="Left" Height="37" Margin="99,0,0,0" VerticalAlignment="Top" Width="83"/>
+            <Button Content="Load Setting" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="83"/>
+            <Button Content="Generate" HorizontalAlignment="Left" Height="37" Margin="214,0,0,0" VerticalAlignment="Top" Width="256" Click="OnClickGenerate"/>
         </Grid>
         <Grid x:Name="ImageGrid" HorizontalAlignment="Left" Height="324" Margin="0,10,0,0" VerticalAlignment="Top" Width="338">
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="324" VerticalAlignment="Top" Width="338"/>
@@ -16,8 +19,8 @@
         <Grid x:Name="ConfiguratioGrid" HorizontalAlignment="Left" Height="324" VerticalAlignment="Top" Width="261" Margin="358,10,0,0">
             <CheckBox Content="CheckBox" HorizontalAlignment="Left" Height="32" Margin="10,66,0,0" VerticalAlignment="Top" Width="68"/>
             <TextBox x:Name="ProjectNameInput" HorizontalAlignment="Left" Height="22" Margin="10,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241"/>
-            <TextBlock HorizontalAlignment="Left" Height="19" Margin="10,20,0,0" TextWrapping="Wrap" Text="Project Name:" VerticalAlignment="Top" Width="141"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="334" VerticalAlignment="Top" Width="261" Margin="0,0,0,-10"/>
+            <TextBlock x:Name="ProjectNameText" HorizontalAlignment="Left" Height="19" Margin="10,20,0,0" TextWrapping="Wrap" Text="Project Name:" VerticalAlignment="Top" Width="87"/>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="324" VerticalAlignment="Top" Width="261"/>
             <TextBlock x:Name="SystemConfigText" HorizontalAlignment="Left" Height="21.5" Margin="73.667,0,0,0" TextWrapping="Wrap" Text="System Configuration" VerticalAlignment="Top" Width="149"/>
 
         </Grid>

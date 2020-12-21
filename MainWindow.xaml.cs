@@ -35,11 +35,28 @@ namespace uLab_system_builder
                 return false;
             return true;
         }
-        private bool isLetter(char letter)
+        private bool isLetter(char letter) // range: A-Z and a-z
         {
             if ((letter >= 65 && letter <= 90) || (letter >= 97 && letter <= 122))
                 return true;
             return false;
+        }
+
+        private void OnClickExit(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(1);
+        }
+
+        private void OnClickGenerate(object sender, RoutedEventArgs e)
+        {
+            if(isProjectNameValid())
+            {
+
+            }
+            else 
+            {
+                MessageBox.Show("Project name cannot be empty, and its first character must be a letter!", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
