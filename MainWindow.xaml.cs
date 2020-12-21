@@ -20,9 +20,26 @@ namespace uLab_system_builder
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const string version = "V1.0.0";
         public MainWindow()
         {
             InitializeComponent();
+            this.Title = "μLab_system_builder " + version; 
+        }
+
+        private bool isProjectNameValid()
+        {
+            if (this.ProjectNameInput.Text.Length < 1)
+                return false;
+            if (!isLetter(this.ProjectNameInput.Text[0]))
+                return false;
+            return true;
+        }
+        private bool isLetter(char letter)
+        {
+            if ((letter >= 65 && letter <= 90) || (letter >= 97 && letter <= 122))
+                return true;
+            return false;
         }
     }
 }
