@@ -17,16 +17,16 @@
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="324" VerticalAlignment="Top" Width="338"/>
         </Grid>
         <Grid x:Name="ConfiguratioGrid" HorizontalAlignment="Left" Height="324" VerticalAlignment="Top" Width="261" Margin="358,10,0,0">
-            <CheckBox x:Name="ESP32Box" Content="ESP32" HorizontalAlignment="Left" Height="32" Margin="10,66,0,0" VerticalAlignment="Top" Width="68"/>
+            <CheckBox x:Name="ESP32Box" Content="ESP32" HorizontalAlignment="Left" Height="32" Margin="10,66,0,0" VerticalAlignment="Top" Width="125"/>
             <TextBox x:Name="ProjectNameInput" HorizontalAlignment="Left" Height="22" Margin="10,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241"/>
             <TextBlock x:Name="ProjectNameText" HorizontalAlignment="Left" Height="19" Margin="10,20,0,0" TextWrapping="Wrap" Text="Project Name:" VerticalAlignment="Top" Width="87"/>
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="324" VerticalAlignment="Top" Width="261"/>
             <TextBlock x:Name="SystemConfigText" HorizontalAlignment="Left" Height="21.5" Margin="73.667,0,0,0" TextWrapping="Wrap" Text="System Configuration" VerticalAlignment="Top" Width="149"/>
             <CheckBox x:Name="_3x_7_SegmentBox" Content="3x 7 Segment" HorizontalAlignment="Left" Height="32" Margin="140,66,0,0" VerticalAlignment="Top" Width="111"/>
-            <CheckBox x:Name="_2x_push_buttonsBox" Content="2x push buttons&#xD;&#xA;" HorizontalAlignment="Left" Height="32" Margin="10,130,0,0" VerticalAlignment="Top" Width="68"/>
-            <CheckBox x:Name="_8x_LEDsBox" Content="8x LEDs" HorizontalAlignment="Left" Height="32" Margin="10,98,0,0" VerticalAlignment="Top" Width="68"/>
+            <CheckBox x:Name="_2x_push_buttonsBox" Content="2x push buttons&#xD;&#xA;" HorizontalAlignment="Left" Height="32" Margin="10,130,0,0" VerticalAlignment="Top" Width="125"/>
+            <CheckBox x:Name="_8x_LEDsBox" Content="8x LEDs" HorizontalAlignment="Left" Height="32" Margin="10,98,0,0" VerticalAlignment="Top" Width="125"/>
             <CheckBox x:Name="_4x_SwitchesBox" Content="4x Switches" HorizontalAlignment="Left" Height="32" Margin="140,98,0,0" VerticalAlignment="Top" Width="111"/>
-            <CheckBox x:Name="GPIOBox" Content="GPIO" HorizontalAlignment="Left" Height="32" Margin="140,130,0,0" VerticalAlignment="Top" Width="68"/>
+            <CheckBox x:Name="GPIOBox" Content="GPIO" HorizontalAlignment="Left" Height="32" Margin="140,130,0,0" VerticalAlignment="Top" Width="111"/>
 
         </Grid>
     </Grid>

@@ -24,7 +24,7 @@ namespace uLab_system_builder
         public MainWindow()
         {
             InitializeComponent();
-            this.Title = "μLab_system_builder " + version; 
+            this.Title = "μLab_system_builder " + version;
         }
 
         private bool isProjectNameValid()
@@ -49,14 +49,84 @@ namespace uLab_system_builder
 
         private void OnClickGenerate(object sender, RoutedEventArgs e)
         {
-            if(isProjectNameValid())
+            if (isProjectNameValid())
             {
+                FileGeneration.GenerateFile(this);
+            }
+            else
+            {
+                Helper.ErrorMessage("Project name cannot be empty, and its first character must be a letter!");
+            }
+        }
+    }
+    public class Helper : Window
+    {
+        public static void ErrorMessage(string error)
+        {
+            MessageBox.Show(error, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+    public class FileGeneration : MainWindow
+    {
+        public static void GenerateFile(MainWindow window)
+        {
+            try
+            {
+                // write stuff to file before parameters
+                if(window.ESP32Box.IsChecked == true)
+                {
+                    writeESP32();
+                }
+                if (window._8x_LEDsBox.IsChecked == true)
+                {
+                    writeLEDS();
+                }
+                if (window._2x_push_buttonsBox.IsChecked == true)
+                {
+                    writePushButtons();
+                }
+                if (window._3x_7_SegmentBox.IsChecked == true)
+                {
+                    writeSevenSegment();
+                }
+                if (window._4x_SwitchesBox.IsChecked == true)
+                {
+                    writeSwitches();
+                }
+                if (window.GPIOBox.IsChecked == true)
+                {
+                    writeGPIO();
+                }
+            }
+            catch(Exception e)
+            {
+                Helper.ErrorMessage(e.ToString());
+            }
 
-            }
-            else 
-            {
-                MessageBox.Show("Project name cannot be empty, and its first character must be a letter!", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+        }
+        private static void writeESP32()
+        {
+
+        }
+        private static void writeLEDS()
+        {
+
+        }
+        private static void writePushButtons()
+        {
+
+        }
+        private static void writeSevenSegment()
+        {
+
+        }
+        private static void writeSwitches()
+        {
+
+        }
+        private static void writeGPIO()
+        {
+
         }
     }
 }
