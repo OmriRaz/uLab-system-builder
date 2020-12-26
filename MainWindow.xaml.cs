@@ -27,15 +27,15 @@ namespace uLab_system_builder
             this.Title = "μLab_system_builder " + version;
         }
 
-        private bool isProjectNameValid()
+        private bool IsProjectNameValid()
         {
             if (this.ProjectNameInput.Text.Length < 1)
                 return false;
-            if (!isLetter(this.ProjectNameInput.Text[0]))
+            if (!IsLetter(this.ProjectNameInput.Text[0]))
                 return false;
             return true;
         }
-        private bool isLetter(char letter) // range: A-Z and a-z
+        private bool IsLetter(char letter) // range: A-Z and a-z
         {
             if ((letter >= 65 && letter <= 90) || (letter >= 97 && letter <= 122))
                 return true;
@@ -49,7 +49,7 @@ namespace uLab_system_builder
 
         private void OnClickGenerate(object sender, RoutedEventArgs e)
         {
-            if (isProjectNameValid())
+            if (IsProjectNameValid())
             {
                 FileGeneration.GenerateFile(this);
             }
@@ -75,27 +75,27 @@ namespace uLab_system_builder
                 // write stuff to file before parameters
                 if(window.ESP32Box.IsChecked == true)
                 {
-                    writeESP32();
+                    WriteESP32();
                 }
                 if (window._8x_LEDsBox.IsChecked == true)
                 {
-                    writeLEDS();
+                    WriteLEDS();
                 }
                 if (window._2x_push_buttonsBox.IsChecked == true)
                 {
-                    writePushButtons();
+                    WritePushButtons();
                 }
                 if (window._3x_7_SegmentBox.IsChecked == true)
                 {
-                    writeSevenSegment();
+                    WriteSevenSegment();
                 }
                 if (window._4x_SwitchesBox.IsChecked == true)
                 {
-                    writeSwitches();
+                    WriteSwitches();
                 }
                 if (window.GPIOBox.IsChecked == true)
                 {
-                    writeGPIO();
+                    WriteGPIO();
                 }
             }
             catch(Exception e)
@@ -104,27 +104,27 @@ namespace uLab_system_builder
             }
 
         }
-        private static void writeESP32()
+        private static void WriteESP32()
         {
 
         }
-        private static void writeLEDS()
+        private static void WriteLEDS()
         {
 
         }
-        private static void writePushButtons()
+        private static void WritePushButtons()
         {
 
         }
-        private static void writeSevenSegment()
+        private static void WriteSevenSegment()
         {
 
         }
-        private static void writeSwitches()
+        private static void WriteSwitches()
         {
 
         }
-        private static void writeGPIO()
+        private static void WriteGPIO()
         {
 
         }
