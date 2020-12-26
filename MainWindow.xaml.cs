@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.WindowsAPICodePack.Dialogs;
+using System.IO;
 
 namespace uLab_system_builder
 {
@@ -27,21 +29,6 @@ namespace uLab_system_builder
             this.Title = "μLab_system_builder " + version;
         }
 
-        private bool IsProjectNameValid()
-        {
-            if (this.ProjectNameInput.Text.Length < 1)
-                return false;
-            if (!IsLetter(this.ProjectNameInput.Text[0]))
-                return false;
-            return true;
-        }
-        private bool IsLetter(char letter) // range: A-Z and a-z
-        {
-            if ((letter >= 65 && letter <= 90) || (letter >= 97 && letter <= 122))
-                return true;
-            return false;
-        }
-
         private void OnClickExit(object sender, RoutedEventArgs e)
         {
             Environment.Exit(1);
@@ -49,9 +36,18 @@ namespace uLab_system_builder
 
         private void OnClickGenerate(object sender, RoutedEventArgs e)
         {
-            if (IsProjectNameValid())
+            if (Helper.IsProjectNameValid(this.ProjectNameInput.Text))
             {
-                FileGeneration.GenerateFile(this);
+                string path = Helper.GetValidFilePath();
+                if(path != "-1")
+                {
+                    path += "\\" + this.ProjectNameInput.Text + ".qsf"; // add filename (project name) with extention to folder path
+                    FileGeneration.GenerateFile(this, path);
+                }
+                else
+                {
+                    Helper.ErrorMessage("Error with path");
+                }
             }
             else
             {
@@ -61,6 +57,49 @@ namespace uLab_system_builder
     }
     public class Helper : Window
     {
+        public static bool IsProjectNameValid(string name)
+        {
+            if (name.Length < 1)
+                return false;
+            if (!IsLetter(name[0]))
+                return false;
+            return true;
+        }
+
+        public static bool IsLetter(char letter) // range: A-Z and a-z
+        {
+            if ((letter >= 65 && letter <= 90) || (letter >= 97 && letter <= 122))
+                return true;
+            return false;
+        }
+
+        public static string GetValidFilePath()
+        {
+            try
+            {
+                string path = "";
+                CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+                dialog.InitialDirectory = path;
+                dialog.IsFolderPicker = true;
+                if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+                {
+                    path = dialog.FileName;
+                }
+
+                if (Directory.Exists(path))
+                {
+                    return path;
+                }
+
+                return "-1";
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return "-1";
+            }
+        }
+
         public static void ErrorMessage(string error)
         {
             MessageBox.Show(error, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -68,64 +107,41 @@ namespace uLab_system_builder
     }
     public class FileGeneration : MainWindow
     {
-        public static void GenerateFile(MainWindow window)
+        public static void GenerateFile(MainWindow window, string path)
         {
             try
             {
+                GenerateFileWrites.WriteGeneral(path);
                 // write stuff to file before parameters
                 if(window.ESP32Box.IsChecked == true)
                 {
-                    WriteESP32();
+                    GenerateFileWrites.WriteESP32(path);
                 }
                 if (window._8x_LEDsBox.IsChecked == true)
                 {
-                    WriteLEDS();
+                    GenerateFileWrites.WriteLEDS(path);
                 }
                 if (window._2x_push_buttonsBox.IsChecked == true)
                 {
-                    WritePushButtons();
+                    GenerateFileWrites.WritePushButtons(path);
                 }
                 if (window._3x_7_SegmentBox.IsChecked == true)
                 {
-                    WriteSevenSegment();
+                    GenerateFileWrites.WriteSevenSegment(path);
                 }
                 if (window._4x_SwitchesBox.IsChecked == true)
                 {
-                    WriteSwitches();
+                    GenerateFileWrites.WriteSwitches(path);
                 }
                 if (window.GPIOBox.IsChecked == true)
                 {
-                    WriteGPIO();
+                    GenerateFileWrites.WriteGPIO(path);
                 }
             }
             catch(Exception e)
             {
                 Helper.ErrorMessage(e.ToString());
             }
-
-        }
-        private static void WriteESP32()
-        {
-
-        }
-        private static void WriteLEDS()
-        {
-
-        }
-        private static void WritePushButtons()
-        {
-
-        }
-        private static void WriteSevenSegment()
-        {
-
-        }
-        private static void WriteSwitches()
-        {
-
-        }
-        private static void WriteGPIO()
-        {
 
         }
     }
