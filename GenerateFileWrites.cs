@@ -8,9 +8,21 @@ namespace uLab_system_builder
 {
     public class GenerateFileWrites
     {
-        public static void WriteGeneral(string path)
+        private static void AppendToFile(string fileName, string line)
         {
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(fileName, true))
+            {
+                file.WriteLine(line);
+            }
+        }
+        public static void WriteGeneral(string path, string projectName)
+        {
+            string line = "set_global_assignment -name FAMILY \"MAX 10\"\n" +
+            "set_global_assignment -name DEVICE 10M08SCU169C8G\n" +
+            "set_global_assignment -name TOP_LEVEL_ENTITY " + projectName + "\n" +
+            "";
 
+            AppendToFile(path, line);
         }
         public static void WriteESP32(string path)
         {

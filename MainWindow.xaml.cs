@@ -42,7 +42,7 @@ namespace uLab_system_builder
                 if(path != "-1")
                 {
                     path += "\\" + this.ProjectNameInput.Text + ".qsf"; // add filename (project name) with extention to folder path
-                    FileGeneration.GenerateFile(this, path);
+                    FileGeneration.GenerateFile(this, path, this.ProjectNameInput.Text);
                 }
                 else
                 {
@@ -107,11 +107,11 @@ namespace uLab_system_builder
     }
     public class FileGeneration : MainWindow
     {
-        public static void GenerateFile(MainWindow window, string path)
+        public static void GenerateFile(MainWindow window, string path, string projectName)
         {
             try
             {
-                GenerateFileWrites.WriteGeneral(path);
+                GenerateFileWrites.WriteGeneral(path, projectName);
                 // write stuff to file before parameters
                 if(window.ESP32Box.IsChecked == true)
                 {
