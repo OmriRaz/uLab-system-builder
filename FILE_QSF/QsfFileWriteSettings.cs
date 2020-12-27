@@ -28,11 +28,12 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 ";
 
         public const string WRITES_CLOCK =
-@"#======================
+@"
+#======================
 #CLOCK
 #======================
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to CLK_50
-set_location_assignment PIN_H6 -to MAX10_CLK1_50
+set_location_assignment PIN_H6 -to CLK_50
 
 ";
 
@@ -50,7 +51,6 @@ set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX0[3]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX0[4]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX0[5]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX0[6]
-set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX0[7]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX1[0]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX1[1]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX1[2]
@@ -58,7 +58,6 @@ set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX1[3]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX1[4]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX1[5]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX1[6]
-set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX1[7]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX2[0]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX2[1]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX2[2]
@@ -66,7 +65,6 @@ set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX2[3]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX2[4]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX2[5]
 set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX2[6]
-set_instance_assignment -name IO_STANDARD ""3.3-V LVTTL"" -to HEX2[7]
 
 #IO Pin Assignments
 

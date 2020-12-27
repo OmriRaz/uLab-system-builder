@@ -45,6 +45,8 @@ namespace uLab_system_builder
 
             generalSettings += QsfFileWriteSettings.WRITES_GENERAL; // general writes for every .qsf file
 
+            generalSettings += QsfFileWriteSettings.WRITES_CLOCK;
+
             Helper.AppendToFile(path, generalSettings);
         }
         public static void WriteESP32(string path)
