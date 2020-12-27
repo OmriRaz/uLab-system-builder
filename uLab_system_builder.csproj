@@ -61,6 +61,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FILE_QPF\QpfFileGeneration.cs" />
+    <Compile Include="FILE_QPF\QpfWriteSettings.cs" />
+    <Compile Include="FILE_QSF\QsfFileGeneration.cs" />
+    <Compile Include="FILE_V\VFileGeneration.cs" />
+    <Compile Include="FILE_V\VFileWriteSettings.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,8 +74,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FileWriteSettings.cs" />
+    <Compile Include="FILE_QSF\QsfFileWriteSettings.cs" />
     <Compile Include="GenerateFileWrites.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -12,9 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.WindowsAPICodePack.Dialogs;
 using System.IO;
-using System.Globalization;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using System.Diagnostics;
 
 namespace uLab_system_builder
@@ -52,13 +51,11 @@ namespace uLab_system_builder
                             Directory.CreateDirectory(path);
                         }
 
-                        string fileName = this.ProjectNameInput.Text + ".qsf";
                         string folder = path;
-                        path += "\\" + fileName; // add filename (project name) with extention to folder path
-                        FileGeneration.GenerateFile(this, path, this.ProjectNameInput.Text);
+                        GenerateFileWrites.GenerateFiles(this, folder, this.ProjectNameInput.Text);
 
                         Process.Start(folder);
-                        string successMessage = "Project " + this.ProjectNameInput + " successfully generated";
+                        string successMessage = "Project " + this.ProjectNameInput.Text + " successfully generated";
                         MessageBox.Show(successMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
@@ -76,115 +73,6 @@ namespace uLab_system_builder
             {
                 Helper.ErrorMessage("Project name cannot be empty, and its first character must be a letter!");
             }
-        }
-    }
-    public class Helper : Window
-    {
-        public static string GetCurrentDateAndTime()
-        {
-            string dateAndTime = DateTime.Now.ToString("HH:mm:ss", System.Globalization.DateTimeFormatInfo.InvariantInfo);
-            dateAndTime += " " 
-            + CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month) 
-            + DateTime.Now.ToString(" d, yyyy");
-
-            return dateAndTime;
-        }
-        public static bool IsProjectNameValid(string name)
-        {
-            if (name.Length < 1)
-                return false;
-            if (!IsLetter(name[0]))
-                return false;
-            return true;
-        }
-
-        public static bool IsLetter(char letter) // range: A-Z and a-z
-        {
-            if ((letter >= 65 && letter <= 90) || (letter >= 97 && letter <= 122))
-                return true;
-            return false;
-        }
-
-        public static string GetValidFolderPath()
-        {
-            try
-            {
-                string path = "";
-                CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-                dialog.InitialDirectory = path;
-                dialog.IsFolderPicker = true;
-                if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
-                {
-                    path = dialog.FileName;
-                }
-
-                if(Directory.Exists(path))
-                {
-                    return path;
-                }
-                else
-                {
-                    return "-1";
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-                return "-1";
-            }
-        }
-
-        public static void ErrorMessage(string error)
-        {
-            MessageBox.Show(error, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-    }
-    public class FileGeneration : MainWindow
-    {
-        public static void GenerateFile(MainWindow window, string path, string projectName)
-        {
-            try
-            {
-                if (File.Exists(path))
-                {
-                    // 2 lines before delete clear garbage collection so that the file can be unlocked
-                    System.GC.Collect();
-                    System.GC.WaitForPendingFinalizers();
-                    File.Delete(path);
-                }
-
-                GenerateFileWrites.WriteGeneral(path, projectName);
-                // write stuff to file before parameters
-                if(window.ESP32Box.IsChecked == true)
-                {
-                    GenerateFileWrites.WriteESP32(path);
-                }
-                if (window._8x_LEDsBox.IsChecked == true)
-                {
-                    GenerateFileWrites.WriteLEDS(path);
-                }
-                if (window._2x_push_buttonsBox.IsChecked == true)
-                {
-                    GenerateFileWrites.WritePushButtons(path);
-                }
-                if (window._3x_7_SegmentBox.IsChecked == true)
-                {
-                    GenerateFileWrites.WriteSevenSegment(path);
-                }
-                if (window._4x_SwitchesBox.IsChecked == true)
-                {
-                    GenerateFileWrites.WriteSwitches(path);
-                }
-                if (window.GPIOBox.IsChecked == true)
-                {
-                    GenerateFileWrites.WriteGPIO(path);
-                }
-            }
-            catch(Exception e)
-            {
-                Helper.ErrorMessage(e.ToString());
-            }
-
         }
     }
 }

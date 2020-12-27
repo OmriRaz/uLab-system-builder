@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace uLab_system_builder
 {
-    public class FileWriteSettings
+    public class QsfFileWriteSettings
     {
         public const string WRITES_GENERAL_PROJECT_NAME = "set_global_assignment -name TOP_LEVEL_ENTITY ";
         public const string WRITES_GENERAL_DATETIME = "set_global_assignment -name PROJECT_CREATION_TIME_DATE "; // "17:22:40  DECEMBER 21, 2020"
