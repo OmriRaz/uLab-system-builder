@@ -26,7 +26,7 @@
             <CheckBox x:Name="_2x_push_buttonsBox" Content="2x push buttons&#xD;&#xA;" HorizontalAlignment="Left" Height="32" Margin="10,130,0,0" VerticalAlignment="Top" Width="125"/>
             <CheckBox x:Name="_8x_LEDsBox" Content="8x LEDs" HorizontalAlignment="Left" Height="32" Margin="10,98,0,0" VerticalAlignment="Top" Width="125"/>
             <CheckBox x:Name="_4x_SwitchesBox" Content="4x Switches" HorizontalAlignment="Left" Height="32" Margin="140,98,0,0" VerticalAlignment="Top" Width="111"/>
-            <CheckBox x:Name="GPIOBox" Content="GPIO" HorizontalAlignment="Left" Height="32" Margin="140,130,0,0" VerticalAlignment="Top" Width="111"/>
+            <CheckBox x:Name="GPIOBox" Content="GPIO" HorizontalAlignment="Left" Height="32" Margin="140,130,0,0" VerticalAlignment="Top" Width="111" IsEnabled="False"/>
 
         </Grid>
     </Grid>
