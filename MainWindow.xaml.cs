@@ -40,22 +40,37 @@ namespace uLab_system_builder
         {
             if (Helper.IsProjectNameValid(this.ProjectNameInput.Text))
             {
-                string path = Helper.GetValidFolderPath();
-                if (path != "-1")
+                try
                 {
-                    string fileName = this.ProjectNameInput.Text + ".qsf";
-                    string folder = path;
-                    path += "\\" + fileName; // add filename (project name) with extention to folder path
-                    FileGeneration.GenerateFile(this, path, this.ProjectNameInput.Text);
+                    string path = Helper.GetValidFolderPath();
+                    if(path != "-1")
+                    {
+                        path += "\\" + this.ProjectNameInput.Text;
 
-                    Process.Start(folder);
-                    string successMessage = "File " +  fileName + " successfully generated.";
-                    MessageBox.Show(successMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        if (!Directory.Exists(path))
+                        {
+                            Directory.CreateDirectory(path);
+                        }
+
+                        string fileName = this.ProjectNameInput.Text + ".qsf";
+                        string folder = path;
+                        path += "\\" + fileName; // add filename (project name) with extention to folder path
+                        FileGeneration.GenerateFile(this, path, this.ProjectNameInput.Text);
+
+                        Process.Start(folder);
+                        string successMessage = "File " + fileName + " successfully generated";
+                        MessageBox.Show(successMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        Helper.ErrorMessage("Invalid path");
+                    }
                 }
-                else
+                catch(Exception exception)
                 {
-                    Helper.ErrorMessage("Error with path");
+                    Helper.ErrorMessage(exception.ToString());
                 }
+                
             }
             else
             {
@@ -103,12 +118,14 @@ namespace uLab_system_builder
                     path = dialog.FileName;
                 }
 
-                if (Directory.Exists(path))
+                if(Directory.Exists(path))
                 {
                     return path;
                 }
-
-                return "-1";
+                else
+                {
+                    return "-1";
+                }
             }
             catch (Exception e)
             {
