@@ -58,7 +58,7 @@ namespace uLab_system_builder
                         FileGeneration.GenerateFile(this, path, this.ProjectNameInput.Text);
 
                         Process.Start(folder);
-                        string successMessage = "File " + fileName + " successfully generated";
+                        string successMessage = "Project " + this.ProjectNameInput + " successfully generated";
                         MessageBox.Show(successMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
