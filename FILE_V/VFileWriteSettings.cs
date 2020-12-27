@@ -15,9 +15,6 @@ namespace uLab_system_builder
         public const string WRITES_SEVENSEG = "\toutput\t\t[6:0]\t\tHEX0,\n"
     + "\toutput\t\t[6:0]\t\tHEX1,\n"
     + "\toutput\t\t[6:0]\t\tHEX2";
-        public const string WRITES_SEVENSEG_NO_COMMAS = "\toutput\t\t[6:0]\t\tHEX0,\n"
-    + "\toutput\t\t[6:0]\t\tHEX1,\n"
-    + "\toutput\t\t[6:0]\t\tHEX2";
 
         public const string WRITES_LED = "\toutput\t\t[7:0]\t\tLED";
         public const string WRITES_GPIO = "\t//inout\t\t[35:0]\t\tGPIO";

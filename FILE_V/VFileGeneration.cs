@@ -27,14 +27,7 @@ namespace uLab_system_builder
             }
             if (window._3x_7_SegmentBox.IsChecked == true)
             {
-                if (window._8x_LEDsBox.IsChecked == true || window.GPIOBox.IsChecked == true) // 7seg not last
-                {
-                    settings += ",\n" + VFileWriteSettings.WRITES_SEVENSEG;
-                }
-                else
-                {
-                    settings += ",\n" + VFileWriteSettings.WRITES_SEVENSEG_NO_COMMAS;
-                }
+                settings += ",\n" + VFileWriteSettings.WRITES_SEVENSEG;
             }
             if (window._8x_LEDsBox.IsChecked == true)
             {
@@ -42,7 +35,8 @@ namespace uLab_system_builder
             }
             if (window.GPIOBox.IsChecked == true)
             {
-                settings += ",\n" + VFileWriteSettings.WRITES_GPIO;
+                // FOR NOW: GPIO is commented. When it is uncommented, replace "\n" with ",\n"
+                settings += "\n" + VFileWriteSettings.WRITES_GPIO;
             }
 
             Helper.AppendToFile(path, settings);
