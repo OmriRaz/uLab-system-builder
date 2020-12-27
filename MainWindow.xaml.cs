@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System.IO;
+using System.Globalization;
 
 namespace uLab_system_builder
 {
@@ -57,6 +58,15 @@ namespace uLab_system_builder
     }
     public class Helper : Window
     {
+        public static string GetCurrentDateAndTime()
+        {
+            string dateAndTime = DateTime.Now.ToString("HH:mm:ss", System.Globalization.DateTimeFormatInfo.InvariantInfo);
+            dateAndTime += " " 
+            + CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month) 
+            + DateTime.Now.ToString(" d, yyyy");
+
+            return dateAndTime;
+        }
         public static bool IsProjectNameValid(string name)
         {
             if (name.Length < 1)
@@ -111,6 +121,14 @@ namespace uLab_system_builder
         {
             try
             {
+                if (File.Exists(path))
+                {
+                    // 2 lines before delete clear garbage collection so that the file can be unlocked
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
+                    File.Delete(path);
+                }
+
                 GenerateFileWrites.WriteGeneral(path, projectName);
                 // write stuff to file before parameters
                 if(window.ESP32Box.IsChecked == true)

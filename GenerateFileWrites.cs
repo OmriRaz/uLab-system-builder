@@ -17,10 +17,10 @@ namespace uLab_system_builder
         }
         public static void WriteGeneral(string path, string projectName)
         {
-            string generalSettings = FileWriteSettings.GENERAL_WRITES_PROJECT_NAME + projectName + "\n";
-            //generalSettings += set_global_assignment -name PROJECT_CREATION_TIME_DATE ""17:22:40  DECEMBER 21, 2020"" ";
+            string generalSettings = FileWriteSettings.WRITES_GENERAL_PROJECT_NAME + projectName + "\n"; // name of project
+            generalSettings += FileWriteSettings.WRITES_GENERAL_DATETIME + "\"" + Helper.GetCurrentDateAndTime() + "\"" + "\n"; // time and date
 
-            generalSettings += FileWriteSettings.GENERAL_WRITES;
+            generalSettings += FileWriteSettings.WRITES_GENERAL; // general writes for every file
 
             AppendToFile(path, generalSettings);
         }
@@ -30,23 +30,23 @@ namespace uLab_system_builder
         }
         public static void WriteLEDS(string path)
         {
-
+            AppendToFile(path, FileWriteSettings.WRITES_LED);
         }
         public static void WritePushButtons(string path)
         {
-
+            AppendToFile(path, FileWriteSettings.WRITES_BUTTON);
         }
         public static void WriteSevenSegment(string path)
         {
-
+            AppendToFile(path, FileWriteSettings.WRITES_SEG7);
         }
         public static void WriteSwitches(string path)
         {
-
+            AppendToFile(path, FileWriteSettings.WRITES_SWITCHES);
         }
         public static void WriteGPIO(string path)
         {
-
+            AppendToFile(path, FileWriteSettings.WRITES_GPIO);
         }
     }
 }
