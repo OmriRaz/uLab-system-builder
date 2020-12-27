@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System.IO;
 using System.Globalization;
+using System.Diagnostics;
 
 namespace uLab_system_builder
 {
@@ -39,11 +40,17 @@ namespace uLab_system_builder
         {
             if (Helper.IsProjectNameValid(this.ProjectNameInput.Text))
             {
-                string path = Helper.GetValidFilePath();
-                if(path != "-1")
+                string path = Helper.GetValidFolderPath();
+                if (path != "-1")
                 {
-                    path += "\\" + this.ProjectNameInput.Text + ".qsf"; // add filename (project name) with extention to folder path
+                    string fileName = this.ProjectNameInput.Text + ".qsf";
+                    string folder = path;
+                    path += "\\" + fileName; // add filename (project name) with extention to folder path
                     FileGeneration.GenerateFile(this, path, this.ProjectNameInput.Text);
+
+                    Process.Start(folder);
+                    string successMessage = "File " +  fileName + " successfully generated.";
+                    MessageBox.Show(successMessage, "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
@@ -83,7 +90,7 @@ namespace uLab_system_builder
             return false;
         }
 
-        public static string GetValidFilePath()
+        public static string GetValidFolderPath()
         {
             try
             {
