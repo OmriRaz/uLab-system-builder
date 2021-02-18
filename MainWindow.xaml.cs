@@ -28,6 +28,9 @@ namespace uLab_system_builder
         {
             InitializeComponent();
             this.Title = "μLab_system_builder " + version;
+            ESP32_PROTOCOL_LIST.IsEnabled = false;
+            ESP32_PROTOCOL_LIST.Visibility = Visibility.Hidden;
+            ESP32_PROTOCOL_TEXT.Visibility = Visibility.Hidden;
         }
 
         private void OnClickExit(object sender, RoutedEventArgs e)
@@ -37,6 +40,12 @@ namespace uLab_system_builder
 
         private void OnClickGenerate(object sender, RoutedEventArgs e)
         {
+            if(ESP32Box.IsChecked == true && !ESP32_ITEM_UART.IsSelected && !ESP32_ITEM_I2C.IsSelected && !ESP32_ITEM_SPI.IsSelected)
+            {
+                Helper.ErrorMessage("ESP32 selected. Please select protocol");
+                return;
+            }
+
             if (Helper.IsProjectNameValid(this.ProjectNameInput.Text))
             {
                 try
@@ -72,6 +81,23 @@ namespace uLab_system_builder
             else
             {
                 Helper.ErrorMessage("Project name cannot be empty, and its first character must be a letter!");
+            }
+        }
+
+        private void OnESP32Click(object sender, RoutedEventArgs e)
+        {
+            if (ESP32Box.IsChecked == true)
+            {
+                ESP32_PROTOCOL_LIST.Visibility = Visibility.Visible;
+                ESP32_PROTOCOL_TEXT.Visibility = Visibility.Visible;
+                ESP32_PROTOCOL_LIST.IsEnabled = true;
+            }
+            else
+            {
+                ESP32_PROTOCOL_LIST.Visibility = Visibility.Hidden;
+                ESP32_PROTOCOL_TEXT.Visibility = Visibility.Hidden;
+                ESP32_PROTOCOL_LIST.IsEnabled = false;
+                ESP32_PROTOCOL_LIST.SelectedItem = null;
             }
         }
     }

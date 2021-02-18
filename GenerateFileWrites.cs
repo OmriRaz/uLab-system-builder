@@ -23,7 +23,7 @@ namespace uLab_system_builder
                 Helper.DeleteFile(path);
                 QpfFileGeneration.GenerateQpfFile(window, path, window.ProjectNameInput.Text);
 
-                path = folder + "\\" + "top.v";
+                path = folder + "\\" + window.ProjectNameInput.Text + ".v";
                 Helper.DeleteFile(path);
                 VFileGeneration.GenerateVFile(window, path, window.ProjectNameInput.Text);
 
