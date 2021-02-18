@@ -15,7 +15,7 @@ namespace uLab_system_builder
 
             if (window.ESP32Box.IsChecked == true)
             {
-                WriteESP32(path);
+                WriteESP32(path, window);
             }
             if (window._8x_LEDsBox.IsChecked == true)
             {
@@ -49,9 +49,24 @@ namespace uLab_system_builder
 
             Helper.AppendToFile(path, generalSettings);
         }
-        public static void WriteESP32(string path)
+        public static void WriteESP32(string path, MainWindow window)
         {
+            if(window.ESP32_ITEM_UART.IsSelected)
+            {
 
+            }
+            else if(window.ESP32_ITEM_I2C.IsSelected)
+            {
+
+            }
+            else if(window.ESP32_ITEM_SPI.IsSelected)
+            {
+
+            }
+            else
+            {
+                Helper.ErrorMessage("ERROR WITH PROTOCOLS ~ CONTACT DEVELOPER");
+            }
         }
         public static void WriteLEDS(string path)
         {

@@ -33,6 +33,26 @@ namespace uLab_system_builder
             {
                 settings += ",\n" + VFileWriteSettings.WRITES_LED;
             }
+            if (window.ESP32Box.IsChecked == true)
+            {
+                if (window.ESP32_ITEM_UART.IsSelected)
+                {
+
+                }
+                else if (window.ESP32_ITEM_I2C.IsSelected)
+                {
+
+                }
+                else if (window.ESP32_ITEM_SPI.IsSelected)
+                {
+
+                }
+                else
+                {
+                    Helper.ErrorMessage("ERROR WITH PROTOCOLS ~ CONTACT DEVELOPER");
+                }
+                //settings += ",\n" + VFileWriteSettings.WRITES_ESP32;
+            }
             if (window.GPIOBox.IsChecked == true)
             {
                 // FOR NOW: GPIO is commented. When it is uncommented, replace "\n" with ",\n"
