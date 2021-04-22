@@ -61,12 +61,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainWindow\CheckBoxes.cs" />
     <Compile Include="FILE_QPF\QpfFileGeneration.cs" />
     <Compile Include="FILE_QPF\QpfWriteSettings.cs" />
     <Compile Include="FILE_QSF\QsfFileGeneration.cs" />
     <Compile Include="FILE_V\VFileGeneration.cs" />
     <Compile Include="FILE_V\VFileWriteSettings.cs" />
-    <Page Include="MainWindow.xaml">
+    <Page Include="MainWindow\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -77,7 +78,7 @@
     <Compile Include="FILE_QSF\QsfFileWriteSettings.cs" />
     <Compile Include="GenerateFileWrites.cs" />
     <Compile Include="Helper.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="MainWindow\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -107,6 +108,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cropped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Cropped3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

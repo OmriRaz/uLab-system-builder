@@ -31,6 +31,13 @@ namespace uLab_system_builder
             ESP32_PROTOCOL_LIST.IsEnabled = false;
             ESP32_PROTOCOL_LIST.Visibility = Visibility.Hidden;
             ESP32_PROTOCOL_TEXT.Visibility = Visibility.Hidden;
+
+            ESP32Border.Visibility = Visibility.Hidden;
+            GPIOBorder.Visibility = Visibility.Hidden;
+            _4SwitchesBorder.Visibility = Visibility.Hidden;
+            _2xPushButtonsBorder.Visibility = Visibility.Hidden;
+            _7SEGBorder.Visibility = Visibility.Hidden;
+            _8xLEDsBorder.Visibility = Visibility.Hidden;
         }
 
         private void OnClickExit(object sender, RoutedEventArgs e)
@@ -84,21 +91,6 @@ namespace uLab_system_builder
             }
         }
 
-        private void OnESP32Click(object sender, RoutedEventArgs e)
-        {
-            if (ESP32Box.IsChecked == true)
-            {
-                ESP32_PROTOCOL_LIST.Visibility = Visibility.Visible;
-                ESP32_PROTOCOL_TEXT.Visibility = Visibility.Visible;
-                ESP32_PROTOCOL_LIST.IsEnabled = true;
-            }
-            else
-            {
-                ESP32_PROTOCOL_LIST.Visibility = Visibility.Hidden;
-                ESP32_PROTOCOL_TEXT.Visibility = Visibility.Hidden;
-                ESP32_PROTOCOL_LIST.IsEnabled = false;
-                ESP32_PROTOCOL_LIST.SelectedItem = null;
-            }
-        }
+        
     }
 }
