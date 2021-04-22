@@ -56,7 +56,7 @@ namespace uLab_system_builder
             if (window.GPIOBox.IsChecked == true)
             {
                 // FOR NOW: GPIO is commented. When it is uncommented, replace "\n" with ",\n"
-                settings += "\n" + VFileWriteSettings.WRITES_GPIO;
+                settings += ",\n" + VFileWriteSettings.WRITES_GPIO;
             }
 
             Helper.AppendToFile(path, settings);

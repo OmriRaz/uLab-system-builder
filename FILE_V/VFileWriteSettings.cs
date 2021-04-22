@@ -17,7 +17,7 @@ namespace uLab_system_builder
     + "\toutput\t\t[6:0]\t\tHEX2";
 
         public const string WRITES_LED = "\toutput\t\t[7:0]\t\tLED";
-        public const string WRITES_GPIO = "\t//inout\t\t[35:0]\t\tGPIO";
+        public const string WRITES_GPIO = "\tinout\t\t[35:0]\t\tGPIO";
         public const string WRITES_END_LINE = @"
 
 );
