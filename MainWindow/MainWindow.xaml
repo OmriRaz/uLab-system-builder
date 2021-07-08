@@ -5,23 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:uLab_system_builder"
         WindowStartupLocation="CenterScreen"
-        mc:Ignorable="d" Height="450" Width="656" ResizeMode="NoResize" Title="μLab_system_builder" Background="#FFD4D4D4">
+        mc:Ignorable="d" Height="570" Width="988.5" ResizeMode="NoResize" Title="μLab_system_builder" Background="#FFD4D4D4">
     <Grid HorizontalAlignment="Left" Height="450" Margin="10,0,-6,-29" VerticalAlignment="Top" Width="646">
-        <Grid x:Name="ButtonsGrid" HorizontalAlignment="Left" Height="37" Margin="0,367,0,0" VerticalAlignment="Top" Width="619">
-            <Button Content="Exit" HorizontalAlignment="Left" Height="37" Margin="505,0,0,0" VerticalAlignment="Top" Width="114" Click="OnClickExit"/>
-            <Button Content="Generate" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="500" Click="OnClickGenerate"/>
+        <Grid x:Name="ButtonsGrid" HorizontalAlignment="Left" Height="79" Margin="0,444.53,-305.5,-73.53" VerticalAlignment="Top" Width="951.5" Panel.ZIndex="1">
+            <Button Content="Exit" HorizontalAlignment="Left" Height="79" Margin="647.5,0,0,0" VerticalAlignment="Top" Width="304" Click="OnClickExit" FontSize="36"/>
+            <Button Content="Generate" HorizontalAlignment="Left" Height="79" VerticalAlignment="Top" Width="652" Click="OnClickGenerate" FontSize="36" FontWeight="Bold" Margin="-4.5,0,0,0" Panel.ZIndex="1"/>
         </Grid>
-        <Grid x:Name="ImageGrid" HorizontalAlignment="Left" Height="324" Margin="0,10,0,0" VerticalAlignment="Top" Width="338">
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="324" VerticalAlignment="Top" Width="338">
-                <Image x:Name="BoardImage" Margin="-50.157,9,-47.334,7.328" Source="/img/Cropped3.png"/>
+        <Grid x:Name="ImageGrid" HorizontalAlignment="Left" Height="411.53" Margin="10,10,0,0" VerticalAlignment="Top" Width="626">
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="411.53" VerticalAlignment="Top" Width="641" Margin="-15,0,0,0">
+                <Image x:Name="BoardImage" Margin="9,-141.5,-54,-153" Source="KiwiNoBackground.png"/>
             </Border>
         </Grid>
-        <Grid x:Name="ConfiguratioGrid" HorizontalAlignment="Left" Height="324" VerticalAlignment="Top" Width="261" Margin="358,10,0,0">
+        <Grid x:Name="ConfiguratioGrid" HorizontalAlignment="Left" Height="411.53" VerticalAlignment="Top" Width="275" Margin="676.5,10,-305.5,0">
             <CheckBox x:Name="ESP32Box" Content="ESP32" HorizontalAlignment="Left" Height="32" Margin="10,130,0,0" VerticalAlignment="Top" Width="125" Click="OnESP32Click"/>
             <TextBox x:Name="ProjectNameInput" HorizontalAlignment="Left" Height="22" Margin="10,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241"/>
             <TextBlock x:Name="ProjectNameText" HorizontalAlignment="Left" Height="19" Margin="10,20,0,0" TextWrapping="Wrap" Text="Project Name:" VerticalAlignment="Top" Width="87"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="324" VerticalAlignment="Top" Width="261">
-                <ListBox x:Name="ESP32_PROTOCOL_LIST" Margin="9,165.333,149.001,88.666">
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="411.53" VerticalAlignment="Top" Width="275">
+                <ListBox x:Name="ESP32_PROTOCOL_LIST" Margin="9,165.333,149.001,168.166">
                     <ListBoxItem x:Name="ESP32_ITEM_UART" Content="UART"/>
                     <ListBoxItem x:Name="ESP32_ITEM_I2C" Content="I²C"/>
                     <ListBoxItem x:Name="ESP32_ITEM_SPI" Content="SPI"/>
@@ -36,7 +36,7 @@
             <TextBlock x:Name="ESP32_PROTOCOL_TEXT" HorizontalAlignment="Left" Height="19" Margin="10,149.05,0,0" TextWrapping="Wrap" Text="Protocol:" VerticalAlignment="Top" Width="69.667"/>
 
         </Grid>
-        <Border x:Name="GPIOBorder" BorderBrush="#FF10FF10" BorderThickness="2" HorizontalAlignment="Left" Height="24.653" Margin="93.994,72.356,0,0" VerticalAlignment="Top" Width="192.345" RenderTransformOrigin="0.5,0.5">
+        <Border x:Name="GPIOBorder" BorderBrush="#FF10FF10" BorderThickness="2" HorizontalAlignment="Left" Height="35.256" Margin="245.479,75.644,0,0" VerticalAlignment="Top" Width="304.485" RenderTransformOrigin="0.5,0.5">
             <Border.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -46,7 +46,7 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-        <Border x:Name="_7SEGBorder" BorderBrush="#FF10FF10" BorderThickness="2" HorizontalAlignment="Left" Height="39.673" Margin="227.77,191.151,0,0" VerticalAlignment="Top" Width="97.3" RenderTransformOrigin="0.5,0.5">
+        <Border x:Name="_7SEGBorder" BorderBrush="#FF10FF10" BorderThickness="2" HorizontalAlignment="Left" Height="75.973" Margin="459.664,250.165,0,0" VerticalAlignment="Top" Width="146.566" RenderTransformOrigin="0.5,0.5">
             <Border.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -56,7 +56,7 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-        <Border x:Name="_4SwitchesBorder" BorderBrush="#FF10FF10" BorderThickness="2" HorizontalAlignment="Left" Height="44.174" Margin="141.454,186.487,0,0" VerticalAlignment="Top" Width="86.466" RenderTransformOrigin="0.5,0.5">
+        <Border x:Name="_4SwitchesBorder" BorderBrush="#FF10FF10" BorderThickness="2" HorizontalAlignment="Left" Height="66.77" Margin="319.981,252.188,0,0" VerticalAlignment="Top" Width="138.074" RenderTransformOrigin="0.5,0.5">
             <Border.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -66,7 +66,7 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-        <Border x:Name="_8xLEDsBorder" BorderBrush="#FF10FF10" BorderThickness="2" HorizontalAlignment="Left" Height="18.301" Margin="232.431,169.062,0,0" VerticalAlignment="Top" Width="68.755" RenderTransformOrigin="0.5,0.5">
+        <Border x:Name="_8xLEDsBorder" BorderBrush="#FF10FF10" BorderThickness="2" HorizontalAlignment="Left" Height="22.248" Margin="464.716,226.09,0,0" VerticalAlignment="Top" Width="107.823" RenderTransformOrigin="0.5,0.5">
             <Border.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -76,7 +76,7 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-        <Border x:Name="ESP32Border" BorderBrush="#FF10FF10" BorderThickness="2" HorizontalAlignment="Left" Height="67.602" Margin="7.279,157.403,0,0" VerticalAlignment="Top" Width="131.427" RenderTransformOrigin="0.5,0.5">
+        <Border x:Name="ESP32Border" BorderBrush="#FF10FF10" BorderThickness="2" HorizontalAlignment="Left" Height="106.019" Margin="109.035,205.457,0,0" VerticalAlignment="Top" Width="206.315" RenderTransformOrigin="0.5,0.5">
             <Border.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -86,7 +86,7 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-        <Border x:Name="_2xPushButtonsBorder" BorderBrush="#FF10FF10" BorderThickness="2" HorizontalAlignment="Left" Height="54.641" Margin="264.199,100.727,0,0" VerticalAlignment="Top" Width="46.084" RenderTransformOrigin="0.5,0.5">
+        <Border x:Name="_2xPushButtonsBorder" BorderBrush="#FF10FF10" BorderThickness="2" HorizontalAlignment="Left" Height="87.948" Margin="518.658,118.409,0,0" VerticalAlignment="Top" Width="70.104" RenderTransformOrigin="0.5,0.5">
             <Border.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
