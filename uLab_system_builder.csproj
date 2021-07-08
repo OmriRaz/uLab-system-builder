@@ -128,25 +128,10 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="KiwiWindow\KiwiCropped.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="KiwiWindow\output-onlinepngtools.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="KiwiWindow\KiwiNoBackground.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ULABLOGO_TRANSPARENT.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="MainWindow\KiwiNoBackground.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="MainWindow\KiwiLiteNoBackground.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="MainWindow\KiwiNoBackground_Reduced.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="MainWindow\KiwiCroppedNoBackground.png" />
