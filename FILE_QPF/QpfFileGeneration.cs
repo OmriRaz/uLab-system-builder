@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace uLab_system_builder
 {
-    class QpfFileGeneration : MainWindow
+    class QpfFileGeneration : KiwiWindow
     {
 
-        public static void GenerateQpfFile(MainWindow window, string path, string projectName)
+        public static void GenerateQpfFile(KiwiWindow window, string path, string projectName)
         {
             string settings = QpfWriteSettings.WRITES_QUARTUS_VERSION + "\n";
             settings += QpfWriteSettings.WRITES_DATE + "\"" + Helper.GetCurrentDateAndTime() + "\"" + "\n"; // time and date

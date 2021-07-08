@@ -18,7 +18,7 @@ using System.Diagnostics;
 
 namespace uLab_system_builder
 {
-    public partial class MainWindow : Window
+    public partial class KiwiWindow : Window
     {
         private void OnESP32Click(object sender, RoutedEventArgs e)
         {

@@ -7,9 +7,9 @@ using System.IO;
 
 namespace uLab_system_builder
 {
-    public class QsfFileGeneration : MainWindow
+    public class QsfFileGeneration : KiwiWindow
     {
-        public static void GenerateQsfFile(MainWindow window, string path, string projectName)
+        public static void GenerateQsfFile(KiwiWindow window, string path, string projectName)
         {
             WriteGeneral(path, projectName);
 
@@ -49,7 +49,7 @@ namespace uLab_system_builder
 
             Helper.AppendToFile(path, generalSettings);
         }
-        public static void WriteESP32(string path, MainWindow window)
+        public static void WriteESP32(string path, KiwiWindow window)
         {
             if(window.ESP32_ITEM_UART.IsSelected)
             {

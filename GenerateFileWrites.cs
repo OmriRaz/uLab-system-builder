@@ -9,7 +9,7 @@ namespace uLab_system_builder
 {
     public class GenerateFileWrites
     {
-        public static void GenerateFiles(MainWindow window, string folder, string projectName)
+        public static void GenerateFiles(KiwiWindow window, string folder, string projectName)
         {
             try
             {

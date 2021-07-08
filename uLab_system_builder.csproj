@@ -64,13 +64,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MainWindow\CheckBoxes.cs" />
+    <Compile Include="KiwiWindow\CheckBoxes.cs" />
     <Compile Include="FILE_QPF\QpfFileGeneration.cs" />
     <Compile Include="FILE_QPF\QpfWriteSettings.cs" />
     <Compile Include="FILE_QSF\QsfFileGeneration.cs" />
     <Compile Include="FILE_V\VFileGeneration.cs" />
     <Compile Include="FILE_V\VFileWriteSettings.cs" />
-    <Page Include="MainWindow\MainWindow.xaml">
+    <Page Include="KiwiWindow\KiwiWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -81,12 +81,19 @@
     <Compile Include="FILE_QSF\QsfFileWriteSettings.cs" />
     <Compile Include="GenerateFileWrites.cs" />
     <Compile Include="Helper.cs" />
-    <Compile Include="MainWindow\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="KiwiWindow\KiwiWindow.xaml.cs">
+      <DependentUpon>KiwiWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MainWindow\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainWindow\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -121,16 +128,31 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="MainWindow\KiwiCropped.png" />
+    <Resource Include="KiwiWindow\KiwiCropped.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="MainWindow\output-onlinepngtools.png" />
+    <Resource Include="KiwiWindow\output-onlinepngtools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="KiwiWindow\KiwiNoBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ULABLOGO_TRANSPARENT.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="MainWindow\KiwiNoBackground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ULABLOGO_TRANSPARENT.ico" />
+    <Resource Include="MainWindow\KiwiLiteNoBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MainWindow\KiwiNoBackground_Reduced.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MainWindow\KiwiCroppedNoBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MainWindow\KiwiLiteCropped.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

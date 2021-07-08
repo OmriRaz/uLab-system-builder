@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace uLab_system_builder
 {
-    class VFileGeneration : MainWindow
+    class VFileGeneration : KiwiWindow
     {
-        public static void GenerateVFile(MainWindow window, string path, string projectName)
+        public static void GenerateVFile(KiwiWindow window, string path, string projectName)
         {
             WriteAll(window, path, projectName);
         }
-        private static void WriteAll(MainWindow window, string path, string projectName)
+        private static void WriteAll(KiwiWindow window, string path, string projectName)
         {
             string settings = VFileWriteSettings.WRITES_MODULE + projectName + "(" + "\n\n"; // name of project
             settings += VFileWriteSettings.WRITES_CLOCK;
